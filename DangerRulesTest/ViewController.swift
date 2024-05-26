@@ -7,17 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-    var testVar:String = "abc"
+    var testVar: String = "abc"
     
-    var testVarTwo:Int = 123
+    var testVarTwo: Int = 123
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("hellow world")
     }
 
-
 }
-
