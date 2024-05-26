@@ -6,5 +6,6 @@ target 'DangerRulesTest' do
   use_frameworks!
 
   # Pods for DangerRulesTest
+  pod 'SwiftLint'
 
 end
