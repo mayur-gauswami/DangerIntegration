@@ -42,11 +42,8 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true
 
-      # additional steps here, if needed
-
-      - name: bundle install
-        run: |
-          bundle install
+      - name: Install dependencies
+        run: bundle install
 
       - name: danger
         env:
