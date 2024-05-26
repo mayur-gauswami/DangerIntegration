@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var testVar:String = "abc"
+    
+    var testVarTwo:Int = 123
 
     override func viewDidLoad() {
         super.viewDidLoad()
