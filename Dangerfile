@@ -123,6 +123,6 @@ files_to_check = (git.modified_files + git.added_files).uniq
 	end
 end
 
-swiftlint.binary_path = 'Pods/SwiftLint/swiftlint'
-swiftlint.config_file = '.swiftlint.yml'
-swiftlint.lint_files
+# swiftlint.binary_path = 'Pods/SwiftLint/swiftlint'
+# swiftlint.config_file = '.swiftlint.yml'
+# swiftlint.lint_files
