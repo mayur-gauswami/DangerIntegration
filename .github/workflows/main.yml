@@ -9,24 +9,42 @@ jobs:
     name: Review, Lint, Verify
     runs-on: macOS-latest
     steps:
-      - name: git checkout
-        uses: actions/checkout@v3
-
-      - name: ruby versions
-        run: |
-          ruby --version
-          gem --version
-          bundler --version
-
-      - name: ruby setup
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
-          bundler-cache: true
-
-      # additional steps here, if needed
-
-      - name: danger
+          ruby-version: '2.6'
+      - uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile') }} # change your gemfile path
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - uses: MeilCli/danger-action@v6
+        with:
+          plugins_file: 'Gemfile'
+          install_path: 'vendor/bundle'
+          danger_file: 'Dangerfile'
+          danger_id: 'danger-pr'
         env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
-        run: bundle exec danger --verbose
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: git checkout
+      #   uses: actions/checkout@v3
+
+      # - name: ruby versions
+      #   run: |
+      #     ruby --version
+      #     gem --version
+      #     bundler --version
+
+      # - name: ruby setup
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: 2.7
+      #     bundler-cache: true
+
+      # # additional steps here, if needed
+
+      # - name: danger
+      #   env:
+      #     DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+      #   run: bundle exec danger --verbose
