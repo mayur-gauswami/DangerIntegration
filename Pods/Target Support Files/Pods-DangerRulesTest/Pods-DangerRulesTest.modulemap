@@ -1,0 +1,6 @@
+framework module Pods_DangerRulesTest {
+  umbrella header "Pods-DangerRulesTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
