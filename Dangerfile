@@ -125,4 +125,4 @@ end
 
 swiftlint.binary_path = 'Pods/SwiftLint/swiftlint'
 swiftlint.config_file = '.swiftlint.yml'
-swiftlint.lint_files
+swiftlint.lint_files(inline_mode: true, fail_on_error: true)
