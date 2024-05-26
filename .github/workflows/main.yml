@@ -6,9 +6,9 @@ on:
 
 jobs:
   main:
-    # name: Review, Lint, Verify
-    # runs-on: macOS-latest
-    # steps:
+    name: Review, Lint, Verify
+    runs-on: macOS-latest
+    steps:
     #   - uses: actions/checkout@v4
     #   - uses: ruby/setup-ruby@v1
     #     with:
